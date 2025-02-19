@@ -1,4 +1,4 @@
-# **Steganography Tool**
+# **Secure Data Hiding in Images Using Steganography**
 
 This repository contains two Python-based tools for **encrypting** and **decrypting** secret messages within images using **steganography**. The tools are built with a user-friendly GUI using the `customtkinter` library.
 
