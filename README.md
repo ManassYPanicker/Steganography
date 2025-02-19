@@ -42,6 +42,9 @@ pip install customtkinter pillow opencv-python numpy
 
 ## **How to Use**
 
+![image](https://github.com/user-attachments/assets/a5516e81-85f2-4495-aa74-7638f572e10f)
+
+
 ### **1. Encryption Tool**
 1. **Run the Encryption Tool**:
    - Execute the `encrypt.py` script.
