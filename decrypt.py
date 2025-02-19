@@ -4,18 +4,18 @@ from PIL import Image
 import cv2
 import numpy as np
 
-# Initialize CustomTkinter
+
 ctk.set_default_color_theme("blue")
 
-# Create the main window
+
 app = ctk.CTk()
 app.title("Steganography Decryption Tool")
 app.geometry("600x700")
 
 selected_image_path = None
-END_MARKER = "@@@"  # Unique marker to indicate the end of the message
+END_MARKER = "@@@"  
 
-# Toggle Dark/Light Mode
+
 def toggle_mode():
     if mode_switch.get() == 1:
         ctk.set_appearance_mode("dark")
@@ -24,7 +24,7 @@ def toggle_mode():
         ctk.set_appearance_mode("light")
         mode_switch.configure(text="Light Mode")
 
-# Select Image
+
 def select_image():
     global selected_image_path
     file_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png;*.jpg;*.jpeg")])
@@ -32,7 +32,7 @@ def select_image():
         selected_image_path = file_path
         load_image(file_path)
 
-# Load Image Preview
+
 def load_image(file_path):
     img = Image.open(file_path)
     img = img.resize((250, 250), Image.LANCZOS)
@@ -40,7 +40,7 @@ def load_image(file_path):
     image_label.configure(image=ctk_image, text="")
     image_label.image = ctk_image
 
-# Decrypt Message
+
 def decrypt_message():
     if not selected_image_path:
         messagebox.showerror("Error", "Please select an image first!")
@@ -83,33 +83,33 @@ def decrypt_message():
     else:
         messagebox.showerror("Error", "No hidden message found!")
 
-# UI Elements
+
 title_label = ctk.CTkLabel(app, text="Steganography Decryption Tool", font=("Arial", 20, "bold"))
 title_label.pack(pady=10)
 
-# Dark Mode Toggle
+
 mode_switch = ctk.CTkSwitch(app, command=toggle_mode)
 mode_switch.pack(pady=5)
 
-# Image Preview
+
 image_label = ctk.CTkLabel(app, text="No Image Selected", width=250, height=250, fg_color="gray")
 image_label.pack()
 
-# Select Image Button
+
 select_button = ctk.CTkButton(app, text="Select Image", command=select_image)
 select_button.pack(pady=10)
 
-# Password Input
+
 password_label = ctk.CTkLabel(app, text="Enter Password:")
 password_label.pack(pady=5)
-password_entry = ctk.CTkEntry(app, width=400, show="*")  # Hide password input
+password_entry = ctk.CTkEntry(app, width=400, show="*")  
 password_entry.pack(pady=5)
 
-# Decrypt Button
+
 decrypt_button = ctk.CTkButton(app, text="Decrypt", command=decrypt_message)
 decrypt_button.pack(pady=10)
 
-# Set Initial Theme
+
 current_mode = ctk.get_appearance_mode()
 if current_mode == "Dark":
     mode_switch.select()
